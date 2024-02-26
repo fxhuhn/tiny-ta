@@ -6,5 +6,7 @@ __pycache__
 .tox/
 .cache/
 .venv
+.DT_Store
 build
 dist
+hints.txt

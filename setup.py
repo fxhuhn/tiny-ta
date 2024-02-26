@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
-from src.tiny_ta import __version__
+#from tiny_ta import __version__
 
 setup(
     name='tiny_ta',
-    version=__version__,
+    version='0.0.2',
     description='some methods for technical analysis!',
 
     url='https://github.com/fxhuhn/tiny_ta',
@@ -13,7 +13,10 @@ setup(
 
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    install_requires=['pandas', 'scipy'], 
+    install_requires=[
+        'pandas>=2.2.0', 
+        'scikit-learn>=1.3.0',
+        'numpy>=1.26.0'],
 
     classifiers=[
         "Programming Language :: Python :: 3",
