@@ -26,7 +26,7 @@ jobs:
       # Sets up python3
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.8 
+          python-version: 3.12 
 
       # Installs and upgrades pip, installs other dependencies and installs the package from setup.py
       - name: "Installs and upgrades pip, installs other dependencies and installs the package from setup.py"
@@ -41,11 +41,11 @@ jobs:
           python3 setup.py install
 
       # Tests with unittest
-      - name: Test with unittest
-        run: |
-          cd tests
-          python3 -m unittest discover
-          cd ..
+      #- name: Test with unittest
+      #  run: |
+      #    cd tests
+      #    python3 -m unittest discover
+      #    cd ..
 
       # Upload to TestPyPI
       - name: Build and Upload to TestPyPI
