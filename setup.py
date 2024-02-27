@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='tiny_ta',
-    version='0.0.2',
+    version='0.0.3',
     description='some methods for technical analysis!',
 
     url='https://github.com/fxhuhn/tiny_ta',
