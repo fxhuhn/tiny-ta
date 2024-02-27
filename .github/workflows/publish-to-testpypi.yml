@@ -39,7 +39,7 @@ jobs:
       url: https://test.pypi.org/p/tiny_ta
 
     permissions:
-      id-token: write  # IMPORTANT: mandatory for trusted publishing
+      id-token: ${{ secrets.TWINE_TEST_TOKEN }}
 
     steps:
     - name: Download all the dists
