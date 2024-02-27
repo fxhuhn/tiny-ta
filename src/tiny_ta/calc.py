@@ -1,4 +1,4 @@
-""" Methods for Chart Analsys """
+""" Collection of methods for chart analsys """
 
 from typing import Literal
 
@@ -40,6 +40,27 @@ def williams(df: pd.DataFrame, period: int = 7) -> pd.Series:
     return round(williams_r, 0)
 
 
+def rsl(close: pd.Series, period: int = 23) -> pd.Series:
+    """
+    The relative strength according to Levy is based on the assumption that
+    securities which exhibited a large relative strength in the past will
+    also develop relatively strongly in future, and vice-versa.
+
+    The formula is fairly simple:
+    RSL = c / ma(c)
+    where c = close price and ma = Moving Average.
+
+    Args:
+        close (pd.Series): _description_
+        period (int, optional): _description_. Defaults to 23.
+
+    Returns:
+        pd.Series: _description_
+    """
+
+    return close / sma(close, period)
+
+
 def rsi(close: pd.Series, period: int = 7) -> pd.Series:
     """
     The relative strength index (RSI) is intended to chart the current and
@@ -53,9 +74,6 @@ def rsi(close: pd.Series, period: int = 7) -> pd.Series:
     Returns:
         pd.Series: _description_
     """
-
-    if not isinstance(close, pd.Series):
-        close = pd.Series(close)
 
     # Get rid of the first row, which is NaN since it did not have a previous
     # row to calculate the differences
